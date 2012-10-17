@@ -29,21 +29,14 @@ def get_hostname(config):
     if 'hostname' in config:
         return config['hostname']
     if ('hostname_method' not in config
-        or config['hostname_method'] == 'fqdn_short'):
-        return socket.getfqdn().split('.')[0]
+        or config['hostname_method'] == 'hostname'):
+        return socket.gethostname()
     if config['hostname_method'] == 'fqdn':
         return socket.getfqdn().replace('.', '_')
     if config['hostname_method'] == 'fqdn_rev':
         hostname = socket.getfqdn().split('.')
         hostname.reverse()
-        hostname = '.'.join(hostname)
-        return hostname
-    if config['hostname_method'] == 'uname_short':
-        return os.uname()[1].split('.')[0]
-    if config['hostname_method'] == 'uname_rev':
-        hostname = os.uname()[1].split('.')
-        hostname.reverse()
-        hostname = '.'.join(hostname)
+        hostname = '_'.join(hostname)
         return hostname
     if config['hostname_method'].lower() == 'none':
         return None

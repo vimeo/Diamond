@@ -111,14 +111,13 @@ timeout = 15
 # Keep in mind, periods are seperators in graphite
 # hostname = my_custom_hostname
 
-# If you perfer to just use a different way of calculating the hostname
+# If you prefer to just use a different way of calculating the hostname
 # Uncomment and set this to one of these values:
-# fqdn_short  = Default. Similar to hostname -s
-# fqdn        = hostname output
-# fqdn_rev    = hostname in reverse (com.example.www)
-# uname_short = Similar to uname -n, but only the first part
-# uname_rev   = uname -r in reverse (com.example.www)
-# hostname_method = fqdn_short
+# hostname    = Hostname. Default. Similar to `hostname`
+# fqdn        = FQDN (domain name) with fallback to hostname. (www_example_com)
+#               Similar to `hostname --fqdn` or `hostname` if no fqdn found
+# fqdn_rev    = FQDN (see above) in reverse (com_example_www)
+# hostname_method = hostname
 
 # Path Prefix and Suffix
 # you can use one or both to craft the path where you want to put metrics
